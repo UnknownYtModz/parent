@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Support Plan — Vridhi</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#E8A33D" stroke-width="3" stroke-dasharray="80 26.9"/><path d="M13 23c2-7 5-10 7-13 2 3 5 6 7 13" stroke="#6FA98A" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+      <div><div class="brand-word">Vridhi</div><div class="brand-sub">Growth Intelligence</div></div>
+    </div>
+    <div class="role-pill"><span class="dot" style="background:var(--sky)"></span>Student &amp; Parent</div>
+
+    <nav class="nav-group">
+      <span class="nav-label">Kabir Mehta · Class 6B</span>
+      <a class="nav-link" href="dashboard.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Dashboard overview
+      </a>
+      <a class="nav-link" href="child-analysis.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></svg>
+        Child performance
+      </a>
+      <a class="nav-link" href="parent-impact.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 3v9l6 3"/></svg>
+        Parent impact
+      </a>
+      <a class="nav-link active" href="home-support.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+        Home support plan
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <a class="switch-role" href="index.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width:14px;height:14px"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
+        Switch role
+      </a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div><h1>Home Support Plan</h1><div class="meta">Tailored to how Kabir actually learns</div></div>
+      <div class="topbar-right"><div class="avatar">PM</div></div>
+    </div>
+
+    <div class="content">
+
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">Profile</span><h2>Child learning profile</h2></div></div>
+        <div class="grid g-3">
+          <div class="card">
+            <div class="card-label">Learning style</div>
+            <h3 style="font-size:19px;margin:8px 0 6px">Visual + hands-on</h3>
+            <p style="font-size:12.5px;color:var(--ink-soft)">Retains diagrams and worked examples far better than reading blocks of text.</p>
+          </div>
+          <div class="card">
+            <div class="card-label">Best study time</div>
+            <h3 style="font-size:19px;margin:8px 0 6px">5:30 – 7:00 PM</h3>
+            <p style="font-size:12.5px;color:var(--ink-soft)">Focus scores peak right after a short break post-school, before dinner.</p>
+          </div>
+          <div class="card">
+            <div class="card-label">Focus level</div>
+            <h3 style="font-size:19px;margin:8px 0 6px">Medium · 28 min avg</h3>
+            <p style="font-size:12.5px;color:var(--ink-soft)">Works best in two 25–30 minute blocks with a 10 minute break between.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">Support map</span><h2>Subject-wise support needed</h2></div></div>
+        <div class="card">
+          <div class="chart-box" style="height:250px"><canvas id="subjectStack"></canvas></div>
+          <div class="chart-legend">
+            <div class="item"><span class="sw" style="background:var(--sage)"></span>Independent</div>
+            <div class="item"><span class="sw" style="background:var(--gold)"></span>Guided practice</div>
+            <div class="item"><span class="sw" style="background:var(--coral)"></span>Needs 1:1 support</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">Balance</span><h2>Stress vs study balance</h2></div></div>
+        <div class="card">
+          <div class="chart-box" style="height:270px"><canvas id="scatterChart"></canvas></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="grid g-2">
+          <div class="card" style="border-color:rgba(111,169,138,.35)">
+            <div class="badge good">✅ Do</div>
+            <ul style="margin:12px 0 0; padding-left:18px; font-size:13px; color:var(--cream-dim); line-height:1.9">
+              <li>Study in two short blocks with a real break between them.</li>
+              <li>Use diagrams and examples before written explanations.</li>
+              <li>Praise effort and process, not just the score.</li>
+            </ul>
+          </div>
+          <div class="card" style="border-color:rgba(232,96,74,.35)">
+            <div class="badge risk">❌ Don't</div>
+            <ul style="margin:12px 0 0; padding-left:18px; font-size:13px; color:var(--cream-dim); line-height:1.9">
+              <li>Don't schedule long single-sitting sessions past 45 minutes.</li>
+              <li>Don't discuss quiz results immediately after school.</li>
+              <li>Don't stack two exam-subject reviews back to back.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">This week</span><h2>Weekly home plan</h2></div></div>
+        <div class="week-grid" id="weekGrid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">Alerts</span><h2>Risk alerts</h2></div></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="alert-row low"><span class="alert-dot"></span><div><strong style="font-size:13.5px">Low</strong><p style="font-size:12.5px;color:var(--ink-soft);margin-top:2px">Attendance dipped slightly this week — not yet a pattern.</p></div></div>
+          <div class="alert-row medium"><span class="alert-dot"></span><div><strong style="font-size:13.5px">Medium</strong><p style="font-size:12.5px;color:var(--ink-soft);margin-top:2px">Stability score usually drops before Friday quizzes — plan a lighter Thursday evening.</p></div></div>
+          <div class="alert-row high"><span class="alert-dot"></span><div><strong style="font-size:13.5px">High</strong><p style="font-size:12.5px;color:var(--ink-soft);margin-top:2px">Two consecutive low scores in English — recommend a 1:1 catch-up before the next unit test.</p></div></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">Mentor</span><h2>AI mentor tips</h2></div></div>
+        <div class="grid g-2">
+          <div class="card">
+            <div class="chat-card">
+              <div class="chat-avatar">🌱</div>
+              <div class="chat-bubble">Kabir does best with Science first — it builds momentum before English, which needs more patience from both of you.</div>
+            </div>
+            <div class="chat-card" style="margin-top:12px">
+              <div class="chat-avatar">🌱</div>
+              <div class="chat-bubble">Try reviewing Friday's quiz results together on Saturday morning, not Friday night — cooler heads, better conversation.</div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom:12px">Recommended this week</h3>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div class="day-item" style="margin:0">📘 15 min visual recap of English grammar rules before Thursday</div>
+              <div class="day-item" style="margin:0">🧩 Swap Sunday's long review for two shorter Math + Science blocks</div>
+              <div class="day-item" style="margin:0">💬 One check-in message to Kavita Ma'am about the English catch-up plan</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+applyChartDefaults();
+
+new Chart(document.getElementById('subjectStack'), {
+  type:'bar',
+  data:{ labels:['Math','Science','English','Social Studies','Hindi'],
+    datasets:[
+      {label:'Independent', data:[50,60,20,45,55], backgroundColor:palette.sage, stack:'s'},
+      {label:'Guided practice', data:[35,30,35,40,30], backgroundColor:palette.gold, stack:'s'},
+      {label:'Needs 1:1 support', data:[15,10,45,15,15], backgroundColor:palette.coral, stack:'s'},
+    ]},
+  options:{plugins:{legend:{display:false}}, scales:{x:{stacked:true, grid:{display:false}}, y:{stacked:true, grid:{color:palette.grid}, max:100}}}
+});
+
+new Chart(document.getElementById('scatterChart'), {
+  type:'scatter',
+  data:{ datasets:[{
+    label:'Days',
+    data:[
+      {x:1.5,y:30},{x:2,y:35},{x:2.5,y:55},{x:3,y:60},{x:3.5,y:70},
+      {x:4,y:80},{x:4.5,y:65},{x:1,y:20},{x:2.2,y:45},{x:3.2,y:75},
+      {x:5,y:50},{x:5.5,y:40},{x:0.8,y:15},{x:3.8,y:78}
+    ],
+    backgroundColor:palette.gold,
+  }]},
+  options:{
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{title:{display:true,text:'Study hours / day'}, grid:{color:palette.grid}},
+      y:{title:{display:true,text:'Stress signal (0–100)'}, grid:{color:palette.grid}}
+    }
+  }
+});
+
+const week = [
+  {d:'Mon', items:['Math practice · 30m','Reading · 15m']},
+  {d:'Tue', items:['Science recap · 25m','Free play']},
+  {d:'Wed', items:['English catch-up · 30m']},
+  {d:'Thu', items:['Light review only','Early night before quiz']},
+  {d:'Fri', items:['Quiz day — no new material','Praise effort after school']},
+  {d:'Sat', items:['Review Friday quiz (AM)','Family time (PM)']},
+  {d:'Sun', items:['Math + Science short blocks','Prep bag for week ahead']},
+];
+const wg = document.getElementById('weekGrid');
+week.forEach(w=>{
+  const col = document.createElement('div');
+  col.className='day-col';
+  col.innerHTML = `<div class="day-name">${w.d}</div>` + w.items.map(i=>`<div class="day-item">${i}</div>`).join('');
+  wg.appendChild(col);
+});
+</script>
+</body>
+</html>

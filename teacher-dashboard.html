@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Overview — Vridhi</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#E8A33D" stroke-width="3" stroke-dasharray="80 26.9"/><path d="M13 23c2-7 5-10 7-13 2 3 5 6 7 13" stroke="#6FA98A" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+      <div><div class="brand-word">Vridhi</div><div class="brand-sub">Growth Intelligence</div></div>
+    </div>
+    <div class="role-pill"><span class="dot" style="background:var(--sage)"></span>Teacher</div>
+
+    <nav class="nav-group">
+      <span class="nav-label">Class 6B</span>
+      <a class="nav-link active" href="teacher-dashboard.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Overview
+      </a>
+      <a class="nav-link" href="#roster">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="18" cy="8.5" r="2.6"/><path d="M15.5 14.2c2.9.4 5 2.5 5 5.8"/></svg>
+        Student roster
+      </a>
+      <a class="nav-link" href="#gradebook">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13Z"/><path d="M8 7h8M8 11h6M8 15h4"/></svg>
+        Gradebook
+      </a>
+      <a class="nav-link" href="#attendance">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="m8 14 2.5 2.5L16 11"/></svg>
+        Attendance
+      </a>
+      <a class="nav-link" href="#notes">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Behaviour notes
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <a class="switch-role" href="index.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width:14px;height:14px"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
+        Switch role
+      </a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h1>Class 6B · Mathematics</h1>
+        <div class="meta">32 students · Meera Nair</div>
+      </div>
+      <div class="topbar-right">
+        <a class="btn btn-ghost btn-sm" href="#attendance">Mark attendance</a>
+        <div class="avatar">MN</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section class="section">
+        <div class="grid g-4">
+          <div class="card stat-card"><div class="txt"><div class="card-label">Class growth score</div><h3 style="font-size:26px;margin-top:6px;font-family:var(--font-display)">58%</h3><div class="delta down">↓ 7 pts this month</div></div></div>
+          <div class="card stat-card"><div class="txt"><div class="card-label">Avg attendance</div><h3 style="font-size:26px;margin-top:6px;font-family:var(--font-display)">91%</h3><div class="delta up">↑ 2 pts</div></div></div>
+          <div class="card stat-card"><div class="txt"><div class="card-label">Students at risk</div><h3 style="font-size:26px;margin-top:6px;font-family:var(--font-display)">5</h3><div class="delta down">2 new this week</div></div></div>
+          <div class="card stat-card"><div class="txt"><div class="card-label">Pending grading</div><h3 style="font-size:26px;margin-top:6px;font-family:var(--font-display)">14</h3><div class="delta flat">Unit 4 quiz</div></div></div>
+        </div>
+      </section>
+
+      <section class="section" id="gradebook">
+        <div class="section-head">
+          <div><span class="eyebrow">This week</span><h2>Class performance trend</h2></div>
+        </div>
+        <div class="card">
+          <div class="chart-box" style="height:240px"><canvas id="classTrend"></canvas></div>
+        </div>
+      </section>
+
+      <section class="section" id="roster">
+        <div class="section-head">
+          <div><span class="eyebrow">Roster</span><h2>Student growth snapshot</h2></div>
+          <a class="btn btn-ghost btn-sm" href="dashboard.html">View a student's full dashboard →</a>
+        </div>
+        <div class="card-flat">
+          <table class="data">
+            <thead><tr><th>Student</th><th>Growth</th><th>Attendance</th><th>Emotion signal</th><th>Flag</th></tr></thead>
+            <tbody>
+              <tr><td>Kabir Mehta</td><td>72%</td><td>94%</td><td><span class="badge good">Stable</span></td><td>—</td></tr>
+              <tr><td>Isha Kapoor</td><td>65%</td><td>88%</td><td><span class="badge warn">Watch</span></td><td>Missed 2 quizzes</td></tr>
+              <tr><td>Dev Anand</td><td>48%</td><td>76%</td><td><span class="badge risk">At risk</span></td><td>3 absences this month</td></tr>
+              <tr><td>Riya Sen</td><td>81%</td><td>97%</td><td><span class="badge good">Stable</span></td><td>—</td></tr>
+              <tr><td>Aman Gupta</td><td>55%</td><td>85%</td><td><span class="badge warn">Watch</span></td><td>Grade dip in Math</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="notes">
+        <div class="section-head">
+          <div><span class="eyebrow">Quick log</span><h2>Add a behaviour or exam note</h2></div>
+        </div>
+        <div class="card-flat">
+          <div class="field-row">
+            <div class="field"><label>Student</label><select><option>Kabir Mehta</option><option>Isha Kapoor</option><option>Dev Anand</option></select></div>
+            <div class="field"><label>Event type</label><select><option>Exam result</option><option>Absence</option><option>Behaviour note</option></select></div>
+          </div>
+          <div class="field"><label>Note</label><input type="text" placeholder="e.g. Scored 92% in Unit 4 quiz, most improved this term"></div>
+          <button class="btn btn-primary" type="button">Save note</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+applyChartDefaults();
+new Chart(document.getElementById('classTrend'), {
+  type:'bar',
+  data:{
+    labels:['Wk1','Wk2','Wk3','Wk4','Wk5','Wk6'],
+    datasets:[
+      {label:'Avg quiz score', data:[68,70,64,60,58,58], backgroundColor:palette.gold, borderRadius:6},
+      {label:'Attendance %', type:'line', data:[92,93,90,89,90,91], borderColor:palette.sky, backgroundColor:palette.sky, tension:.4}
+    ]
+  },
+  options:{plugins:{legend:{position:'bottom', labels:{boxWidth:9,boxHeight:9}}}, scales:{y:{grid:{color:palette.grid}, min:40, max:100}, x:{grid:{display:false}}}}
+});
+</script>
+</body>
+</html>

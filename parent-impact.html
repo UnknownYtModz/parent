@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent Impact Dashboard — Vridhi</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#E8A33D" stroke-width="3" stroke-dasharray="80 26.9"/><path d="M13 23c2-7 5-10 7-13 2 3 5 6 7 13" stroke="#6FA98A" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+      <div><div class="brand-word">Vridhi</div><div class="brand-sub">Growth Intelligence</div></div>
+    </div>
+    <div class="role-pill"><span class="dot" style="background:var(--sky)"></span>Student &amp; Parent</div>
+
+    <nav class="nav-group">
+      <span class="nav-label">Kabir Mehta · Class 6B</span>
+      <a class="nav-link" href="dashboard.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Dashboard overview
+      </a>
+      <a class="nav-link" href="child-analysis.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></svg>
+        Child performance
+      </a>
+      <a class="nav-link active" href="parent-impact.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 3v9l6 3"/></svg>
+        Parent impact
+      </a>
+      <a class="nav-link" href="home-support.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+        Home support plan
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <a class="switch-role" href="index.html">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width:14px;height:14px"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
+        Switch role
+      </a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div><h1>Parent Impact Dashboard</h1><div class="meta">How Priya's involvement shapes Kabir's growth</div></div>
+      <div class="topbar-right"><div class="avatar">PM</div></div>
+    </div>
+
+    <div class="content">
+
+      <section class="section">
+        <div class="card" style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+          <div class="ring-wrap" id="ring-impact" style="width:120px;height:120px">
+            <svg viewBox="0 0 104 104" width="120" height="120"><circle class="ring-track" cx="52" cy="52" r="42"/><circle class="ring-fill" cx="52" cy="52" r="42"/></svg>
+            <div class="ring-value"><span class="num" data-suffix="%" style="font-size:28px">83</span><span class="lbl">Impact</span></div>
+          </div>
+          <div style="flex:1;min-width:220px">
+            <div class="card-label">Parent impact score</div>
+            <h2 style="font-size:20px;margin:6px 0 8px">Your involvement is strongly correlated with growth</h2>
+            <p style="font-size:13.5px;color:var(--ink-soft);max-width:480px">Weeks with 3+ logged check-ins show an average +9pt academic bump within 10 days.</p>
+            <span class="badge good" style="margin-top:12px">Top 20% most involved parents in Class 6B</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">Engagement</span><h2>Communication effectiveness</h2></div></div>
+        <div class="grid g-2">
+          <div class="card">
+            <h3>Response &amp; follow-through over time</h3>
+            <div class="chart-box" style="height:220px;margin-top:12px"><canvas id="commLine"></canvas></div>
+          </div>
+          <div class="card">
+            <h3>Messages by channel outcome</h3>
+            <div class="chart-box" style="height:220px;margin-top:12px"><canvas id="commBar"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">Impact</span><h2>Before vs after involvement</h2></div></div>
+        <div class="card">
+          <div class="chart-box" style="height:250px"><canvas id="beforeAfter"></canvas></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="grid g-2">
+          <div class="card">
+            <div class="section-head" style="margin-bottom:10px"><h2 style="font-size:16px">Involvement pattern</h2></div>
+            <div class="heatmap" id="heatmap"></div>
+            <div class="heat-scale">Less <span class="box" style="background:var(--navy-700)"></span><span class="box" style="background:rgba(232,163,61,.35)"></span><span class="box" style="background:rgba(232,163,61,.65)"></span><span class="box" style="background:var(--gold)"></span> More</div>
+          </div>
+          <div class="card">
+            <div class="section-head" style="margin-bottom:10px"><h2 style="font-size:16px">Impact by activity type</h2></div>
+            <div class="chart-box" style="height:230px"><canvas id="activityBar"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head"><div><span class="eyebrow">Behaviour</span><h2>Parent behaviour signals</h2></div></div>
+        <div class="grid g-3">
+          <div class="card">
+            <div class="badge good">Supportive</div>
+            <h3 style="margin-top:10px;font-size:15px">Homework check-ins</h3>
+            <p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px">Calm, consistent, encouragement-first tone. Strongest growth correlation.</p>
+          </div>
+          <div class="card">
+            <div class="badge warn">Balanced</div>
+            <h3 style="margin-top:10px;font-size:15px">Exam-week attention</h3>
+            <p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px">Slightly more frequent messaging around exams — mostly reassuring.</p>
+          </div>
+          <div class="card">
+            <div class="badge risk">High pressure</div>
+            <h3 style="margin-top:10px;font-size:15px">Grade-result reactions</h3>
+            <p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px">2 instances flagged with sharper tone after low quiz scores — linked to next-week dips.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+applyChartDefaults();
+paintRing('ring-impact', 83, palette.gold);
+
+new Chart(document.getElementById('commLine'), {
+  type:'line',
+  data:{ labels:['Feb','Mar','Apr','May','Jun','Jul'],
+    datasets:[
+      {label:'Messages sent', data:[4,6,5,8,7,9], borderColor:palette.sky, backgroundColor:palette.skySoft, tension:.4, fill:true},
+      {label:'Teacher responses', data:[3,5,5,7,7,8], borderColor:palette.sage, backgroundColor:palette.sageSoft, tension:.4, fill:true}
+    ]},
+  options:{plugins:{legend:{position:'bottom', labels:{boxWidth:9,boxHeight:9}}}, scales:{y:{grid:{color:palette.grid}}, x:{grid:{display:false}}}}
+});
+
+new Chart(document.getElementById('commBar'), {
+  type:'bar',
+  data:{ labels:['App chat','Phone call','Parent meeting','Email'],
+    datasets:[{label:'Resolved positively', data:[18,9,6,4], backgroundColor:palette.gold, borderRadius:6}]},
+  options:{plugins:{legend:{display:false}}, scales:{y:{grid:{color:palette.grid}}, x:{grid:{display:false}}}}
+});
+
+new Chart(document.getElementById('beforeAfter'), {
+  type:'bar',
+  data:{ labels:['Academic score','Attendance','Emotional stability','Homework completion'],
+    datasets:[
+      {label:'Before involvement plan', data:[58,84,57,61], backgroundColor:'rgba(255,255,255,.16)', borderRadius:6},
+      {label:'After involvement plan', data:[76,94,68,85], backgroundColor:palette.gold, borderRadius:6}
+    ]},
+  options:{plugins:{legend:{position:'bottom', labels:{boxWidth:9,boxHeight:9}}}, scales:{y:{grid:{color:palette.grid}, max:100}, x:{grid:{display:false}}}}
+});
+
+new Chart(document.getElementById('activityBar'), {
+  type:'bar',
+  data:{ labels:['Homework check-ins','Reading together','Teacher messages','School events','Praise / encouragement'],
+    datasets:[{label:'Growth lift', data:[9.2,7.4,6.1,4.8,8.5], backgroundColor:palette.sage, borderRadius:6}]},
+  options:{indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{grid:{color:palette.grid}}, y:{grid:{display:false}}}}
+});
+
+// heatmap: 7 days x 4 weeks
+const hm = document.getElementById('heatmap');
+const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+days.forEach(d=>{
+  const lbl = document.createElement('div');
+  lbl.textContent = d;
+  lbl.style.cssText = 'font-size:10px;color:var(--ink-soft);text-align:center;margin-bottom:2px';
+  hm.appendChild(lbl);
+});
+const levels = [0,1,2,1,3,1,0, 1,2,3,2,2,0,0, 0,1,2,3,3,1,0, 1,1,2,2,3,2,1];
+const colors = ['var(--navy-700)','rgba(232,163,61,.35)','rgba(232,163,61,.65)','var(--gold)'];
+levels.forEach(l=>{
+  const c = document.createElement('div');
+  c.className='cell';
+  c.style.background = colors[l];
+  hm.appendChild(c);
+});
+</script>
+</body>
+</html>
